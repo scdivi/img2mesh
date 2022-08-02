@@ -1,0 +1,6 @@
+{ "FNAME"     : "walle_70.raw",
+  "DIMS"      : [70,70],
+  "SIZE"      : [1.42857143e-02,1.42857143e-02],
+  "THRESHOLD"   : 0.0,
+  "ORDER"   : "C",
+  "DTYPE"    : "<i2" }
