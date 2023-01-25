@@ -8,7 +8,7 @@ from img2topo.scan import get_scandata, TopoMap, nutils_topo
 
 def main ( fname        = 'walle_70' ,
            nelems       = 7          ,
-           maxrefine    = 2          ,
+           maxrefine    = 3          ,
            topopreserve = False        
           ):
 

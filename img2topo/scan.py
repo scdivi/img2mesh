@@ -29,7 +29,7 @@ def nutils_topo(fname        = 'walle_70' ,
     levelset = TopoMap(levelset - .5, voxeltopo, voxelgeom, topo, geom, 2**maxrefine+1)
 
     # trim levelset
-    ttopo = topo.trim(-levelset, maxrefine=maxrefine)
+    ttopo = topo.trim(levelset, maxrefine=maxrefine)
 
     return ttopo, geom
 

@@ -18,12 +18,11 @@ The tool contains a feature called topology preservation based on the [paper](10
 ### After topology preservation:
 ![image](https://user-images.githubusercontent.com/33148729/214567723-c28b9b64-ae5e-4310-a048-59d10c26a957.png)
 
-## Required (external) packages
-- [Nutils](https://nutils.org/install-nutils.html)
-- [Scikit-mage](https://scikit-image.org/docs/stable/install.html)
-
 ## Example images:
-
 ![pacman_300](https://user-images.githubusercontent.com/33148729/214568005-0beb9cb5-b2d5-44e8-b99e-56593f50e16a.png)
 ![rocket_100](https://user-images.githubusercontent.com/33148729/214568017-eedd286f-6fa0-494f-910a-5161d52b8b11.png)
 ![walle_70](https://user-images.githubusercontent.com/33148729/214568039-c203cd85-f17f-498a-a8e7-b717704bd88c.png)
+
+## Required (external) packages
+- [Nutils](https://nutils.org/install-nutils.html)
+- [Scikit-mage](https://scikit-image.org/docs/stable/install.html)
