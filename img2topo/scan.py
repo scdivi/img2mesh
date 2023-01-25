@@ -31,7 +31,7 @@ def nutils_topo(fname        = 'walle_70' ,
     # trim levelset
     ttopo = topo.trim(levelset, maxrefine=maxrefine)
 
-    return ttopo, geom
+    return topo, ttopo, geom
 
 ###################
 # read json files #
@@ -94,10 +94,9 @@ def TopoMap(func, func_topo, func_geom, eval_topo, eval_geom, npts):
 def get_scandata(fname, degree=2, topopreserve=False):
 
     # set the json file name
-    fdir = 'data/'
-    fjson = f'../{fdir}{fname}.json'
+    fjson = f'{fname}.json'
 
-    assert os.path.exists(fjson), f"Json file {fname} not found in {fdir}"
+    assert os.path.exists(fjson), f"Json file {fjson} is not found"
 
     if not topopreserve:
       # read json

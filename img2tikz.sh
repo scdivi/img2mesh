@@ -1,0 +1,1 @@
+python3 img2topo/img2tikz.py fname=$1

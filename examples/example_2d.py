@@ -12,7 +12,8 @@ def main ( fname        = 'walle_70' ,
            topopreserve = False        
           ):
 
-    ttopo, geom = nutils_topo(fname, nelems, maxrefine, topopreserve)
+    fname = f'../data/{fname}'
+    topo, ttopo, geom = nutils_topo(fname, nelems, maxrefine, topopreserve)
 
     bezier = ttopo.sample('bezier', 2**maxrefine+1)
     points, vals = bezier.eval([geom, 0])

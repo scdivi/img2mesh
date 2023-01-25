@@ -1,0 +1,50 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{spy}
+\usetikzlibrary{calc}
+\usepackage{newtxtext}       %
+\usepackage{newtxmath}       % selects Times Roman as basic font
+
+% define colors
+\input{colorpallete.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzmath{
+	\wambient=4;
+	\h=(1/18)*\wambient;
+}
+
+  % axes
+  \draw[->] (0,0) -- (1.1*\wambient,0) node[below] {$x_1$} coordinate(x axis);
+  \draw[->] (0,0) -- (0,1.1*\wambient) node[left] {$x_2$} coordinate(y axis);
+  
+  % subcells (from data)
+  \begin{scope}[scale=\wambient,line join=bevel,ultra thin,fill=black!25,draw=black!25]
+    \input{data/carotid_domain.dat}
+  \end{scope}
+  
+  % ambient mesh (from data)
+  \begin{scope}[scale=\wambient,line cap=round, ultra thin, color=black!50, opacity=0.3]
+    \input{data/carotid_ambient.dat}
+  \end{scope}
+  
+  % background mesh (from data)
+  \begin{scope}[scale=\wambient,line cap=round,opacity=0.8]
+    \input{data/carotid_background.dat}
+  \end{scope}
+
+  \draw[thin] (0,0) rectangle (\wambient,\wambient);
+  
+  \node at (15.5*\h,14.0*\h) {$\mathcal{T}^{h}$};
+  \node[black!50] at (2.0*\h,16.5*\h) {$\mathcal{T}^{h}_{\Omega_{\rm scan}}$};
+
+  \draw[|-|] (\wambient+0.5*\h,3*\h) -- node[right]{$h$} ++(0,\h);
+
+\end{tikzpicture}
+\end{document}

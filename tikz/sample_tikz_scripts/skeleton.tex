@@ -1,0 +1,54 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{spy}
+\usetikzlibrary{calc}
+\usepackage{newtxtext}       %
+\usepackage{newtxmath}       % selects Times Roman as basic font
+
+% define colors
+\definecolor{cbred}{RGB}{204,51,17}
+\definecolor{cbgreen}{RGB}{0,153,136}
+\definecolor{cbblue}{RGB}{0,119,187}
+\definecolor{cborange}{RGB}{238,119,51}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzmath{
+	\wambient=4;
+	\h=(1/18)*\wambient;
+	}
+
+  % domain (from data)
+  \begin{scope}[scale=\wambient,line join=bevel,ultra thin,fill=black!25,draw=black!25]
+    \input{data/carotid_domain.dat}
+  \end{scope}
+
+  % ambient mesh (from data)
+  %\begin{scope}[scale=\wambient, ultra thin, color=black!50, opacity=0.3]
+  \begin{scope}[scale=\wambient, ultra thin, color=black!50, opacity=0.3]
+    \input{data/carotid_ambient.dat}
+  \end{scope}
+  
+  % skeleton interfaces (from data)
+  \begin{scope}[scale=\wambient, line cap=round, color=cbred]
+    \input{data/carotid_skeleton.dat}
+  \end{scope}
+  
+  % axes
+  \draw[->] (0,0) -- (1.1*\wambient,0) node[below] {$x_1$} coordinate(x axis);
+  \draw[->] (0,0) -- (0,1.1*\wambient) node[left] {$x_2$} coordinate(y axis);
+  
+  \draw[thin] (0,0) rectangle (\wambient,\wambient);
+  
+  \node[cbred] at (14.5*\h,4.0*\h) {$\mathcal{F}_{\rm skeleton}$};
+  \node[black!50] at (2.0*\h,16.5*\h) {$\mathcal{T}^{h}_{\Omega_{\rm scan}}$};
+
+  \draw[|-|] (\wambient+0.5*\h,3*\h) -- node[right]{$h$} ++(0,\h);
+
+\end{tikzpicture}
+\end{document}

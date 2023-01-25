@@ -1,0 +1,50 @@
+\documentclass{standalone}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{spy}
+\usetikzlibrary{calc}
+\usepackage{newtxtext}       %
+\usepackage{newtxmath}       % selects Times Roman as basic font
+
+% define colors
+\input{colorpallete.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+\tikzmath{
+	\wambient=4;
+	\h=(1/8)*\wambient;
+	}
+
+  % axes
+  \draw[->] (0,0) -- (1.1*\wambient,0) node[below] {$x_1$} coordinate(x axis);
+  \draw[->] (0,0) -- (0,1.1*\wambient) node[left] {$x_2$} coordinate(y axis);
+  
+  % subcells (from data)
+  \begin{scope}[scale=\wambient,line join=bevel,ultra thin,fill=black!25,draw=black!25]
+    \input{data/carotid_domain.dat}
+  \end{scope}
+
+  \draw[thin] (0,0) rectangle (\wambient,\wambient);
+    
+  % boundary (from data)
+  \begin{scope}[scale=\wambient, draw=cbblue]
+    \input{data/carotid_boundary_32_53_5.dat}
+  \end{scope}
+  \begin{scope}[scale=\wambient, line cap=round, draw=cbblue]
+    \input{data/carotid_top.dat}
+  \end{scope}
+  \begin{scope}[scale=\wambient, line cap=round, draw=cbblue]
+    \input{data/carotid_bottom.dat}
+  \end{scope}
+    
+  \node at (7.0*\h,0.5*\h) {$\Omega_{\rm scan}$};
+  \node at (3.5*\h,1.5*\h) {$\Omega$};
+  \node[cbblue] at (1.5*\h,2.5*\h) {$\partial \Omega$};
+
+\end{tikzpicture}
+\end{document}

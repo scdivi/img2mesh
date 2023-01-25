@@ -1,8 +1,7 @@
 from PIL import Image
 import numpy, sys, os
 
-BASE = sys.argv[1] #Image name e.g. walle
-ORIG = sys.argv[2] #Voxel/Pixel size e.g. 70
+BASE, ORIG = str(sys.argv[1]).split('_')
 
 iPATH = 'images/'
 fname = BASE + '_' + str(ORIG) + '.png'
