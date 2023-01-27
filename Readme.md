@@ -1,4 +1,4 @@
-# img_2_nutils
+# Image to nutils topology
 This reposity provides a tool to convert .png to [Nutils](https://github.com/evalf/nutils) readable topology data structure (i.e. analysis-suitable geometry).
 
 ## Instructions for usage
